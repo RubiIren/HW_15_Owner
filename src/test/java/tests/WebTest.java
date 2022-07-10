@@ -18,7 +18,9 @@ public class WebTest {
         Configuration.browserSize = config.getBrowserSize();
         Configuration.browser = config.getBrowser();
         Configuration.browserVersion = config.getBrowserVersion();
-        Configuration.remote = config.getRemoteUrl();
+        if (!config.getRemoteUrl().equals("")) {
+            Configuration.remote = config.getRemoteUrl();
+        }
 
         open("http://awg.ru");
         $(By.className("header-menu__phone")).shouldHave(text("+7 495 278-07-08"));
